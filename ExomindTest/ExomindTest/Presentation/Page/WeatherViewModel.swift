@@ -10,17 +10,20 @@ import Combine
 
 class WeatherViewModel: ObservableObject {
     @Published public var currentMessageToDisplay: String?
-    @Published public var loaded: Bool = false
-    var weatherList: [WeatherResponse] = []
     
-    private var currentMessageIndex = 0
-    private var currentCityIndex = 0
+    // Boolean flag to indicate if list of weather are loaded
+    @Published public var loaded: Bool = false
+    
+    // Progress of loading in percentage
+    @Published public var progress: Double = 0.0
+    
+    @Published var weatherList: [WeatherResponse] = []
     
     private let homeService: HomeServiceProtocol
     
-    var title: String {
-        "Chargement de la météo"
-    }
+    
+    private var currentMessageIndex: Int = 0
+    private var currentCityIndex: Int = 0
     
     /**
      cities name to be used as parameter to get the weather from an API Service
@@ -34,7 +37,7 @@ class WeatherViewModel: ObservableObject {
     ]
     
     /**
-     Message to display during the loading
+     Message to display during the loading of weather data
      */
     private var loadingMessages: [String] = [
         "Nous téléchargeons les données…",
@@ -51,36 +54,48 @@ class WeatherViewModel: ObservableObject {
         self.homeService = homeService
     }
     
+    /**
+     When the view appears, start the timers
+     */
     public func onAppear() {
         startTimer()
     }
     
     public func restartTimer() {
+        weatherList.removeAll()
         removeTimer()
+        
         startTimer()
-        loaded = false
     }
     
+    /**
+     When the view disappears, it must remove the timers
+     */
     public func onDisappear() {
+        weatherList.removeAll()
         removeTimer()
-        loaded = false
+        
     }
     
     private func startTimer() {
-        weatherList = []
+        loaded = false
+        
+        TimerQuery.shared.registerTimer(id: "updateMessage", interval: 1, repeats: true, block: displayMessage)
+        
+        TimerQuery.shared.registerTimer(id: "loadWeather", interval: 2, repeats: true, block: getWeather)
+        
         displayMessage()
-        
-        TimerQuery.shared.registerTimer(id: "updateMessage", interval: 6, repeats: true, block: displayMessage)
-        
-        TimerQuery.shared.registerTimer(id: "loadWeather", interval: 1, repeats: true, block: loadWeather)
+        getWeather()
     }
     
     private func removeTimer() {
         currentCityIndex = 0
         currentMessageIndex = 0
+        progress = 0
         
         TimerQuery.shared.removeTimer(withId: "updateMessage")
         TimerQuery.shared.removeTimer(withId: "loadWeather")
+        TimerQuery.shared.removeTimer(withId: "checkIfLoaded")
     }
     
     private func displayMessage() {
@@ -89,18 +104,10 @@ class WeatherViewModel: ObservableObject {
         currentMessageIndex = (currentMessageIndex + 1) % loadingMessages.count
     }
     
-    private func loadWeather() {
-        getWeather()
-    }
-    
     private func getWeather() {
-        guard currentCityIndex < 5 else {
-            loaded = true
-            removeTimer()
-            return
-        }
         let cityName = cities[currentCityIndex]
-        currentCityIndex += 1
+        self.currentCityIndex += 1
+        
         homeService.getWeather(city: cityName)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
@@ -111,8 +118,23 @@ class WeatherViewModel: ObservableObject {
                 }
             }, receiveValue: { response in
                 self.weatherList.append(response)
-                print("ROUGEE: \(response)")
+                
+                self.progress = Double(self.weatherList.count) / Double(self.cities.count)
+                
+                self.checkIfLoaded()
             })
             .store(in: &cancellables)
+    }
+    
+    private func checkIfLoaded() {
+        guard self.currentCityIndex < self.cities.count else {
+            
+            // Delay of 1 second before loading the list and remove timers
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.loaded = true
+                self.removeTimer()
+            }
+            return
+        }
     }
 }

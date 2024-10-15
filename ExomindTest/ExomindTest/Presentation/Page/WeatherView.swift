@@ -12,29 +12,26 @@ struct WeatherView: View {
     
     var body: some View {
         ZStack(alignment: .topLeading) {
-            VStack(alignment: .leading, spacing: 20) {
-                titleView
-                
-                if !viewModel.loaded {
-                    messageView
-                } else {
-                    contentView
-                }
+            VStack(alignment: .center, spacing: 20) {
+                contentView
                 
                 progressView
             }
+            .padding(.leading, .homeTitlePaddingLeading)
             .frame(width: UIScreen.screenWidth, alignment: .leading)
         }
         .onAppear(perform: onAppear)
         .onDisappear(perform: onDisappear)
     }
     
-    private var titleView: some View {
-        Text(viewModel.title)
-            .foregroundColor(.black)
-//            .font(Font.custom(.helveticaNeue75, size: 30))
-            .padding(.top, .homeTitlePaddingTop)
-            .padding(.leading, .homeTitlePaddingLeading)
+    @ViewBuilder
+    private var contentView: some View {
+        // If the list is not loaded then display a message during the loading
+        if !viewModel.loaded {
+            messageView
+        } else {
+            listView
+        }
     }
     
     @ViewBuilder
@@ -44,35 +41,23 @@ struct WeatherView: View {
                 .foregroundColor(.black)
             //            .font(Font.custom(.helveticaNeue75, size: 30))
                 .padding(.top, .homeTitlePaddingTop)
-                .padding(.leading, .homeTitlePaddingLeading)
         }
     }
     
     @ViewBuilder
-    private var contentView: some View {
+    private var listView: some View {
         LazyVStack(alignment: .leading, spacing: 20) {
             ForEach(viewModel.weatherList, id: \.id) { weather in
-                HStack {
-                    // Name of the city
-                    Text(weather.name)
-                    
-                    // Temperature in °C
-                    Text(weather.temparatureText)
-                    
-                    // Icon URL
-                    if let iconURL = weather.iconURL {
-                        AsyncImage(url: iconURL)
-                    }
-                }
+                WeatherRowCard(weather: weather)
             }
         }
-        .padding(.top, 10)
     }
     
     @ViewBuilder
     private var progressView: some View {
         if !viewModel.loaded {
-            Text("Progress")
+            let progress = viewModel.progress
+            ProgressBarView(value: progress, backgroundColor: .gray, foregroundColor: .purple, width: UIScreen.screenWidth * 0.8, height: 30)
         } else {
             Button(action: restart, label: {
                 Text("Recommencer")
