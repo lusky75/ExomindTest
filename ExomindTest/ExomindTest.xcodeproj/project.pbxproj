@@ -14,6 +14,25 @@
 		FBD673712CBEA52C00DDD828 /* ExomindTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD673702CBEA52C00DDD828 /* ExomindTestTests.swift */; };
 		FBD6737B2CBEA52C00DDD828 /* ExomindTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD6737A2CBEA52C00DDD828 /* ExomindTestUITests.swift */; };
 		FBD6737D2CBEA52C00DDD828 /* ExomindTestUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD6737C2CBEA52C00DDD828 /* ExomindTestUITestsLaunchTests.swift */; };
+		FBD673A22CBEA76C00DDD828 /* Networker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD673A12CBEA76C00DDD828 /* Networker.swift */; };
+		FBD673A42CBEA7BC00DDD828 /* NetworkerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD673A32CBEA7BC00DDD828 /* NetworkerError.swift */; };
+		FBD673A62CBEA7E100DDD828 /* NetworkStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD673A52CBEA7E100DDD828 /* NetworkStatus.swift */; };
+		FBD673AC2CBEAA8E00DDD828 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD673AB2CBEAA8E00DDD828 /* HomeView.swift */; };
+		FBD673AE2CBEAAA600DDD828 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD673AD2CBEAAA600DDD828 /* HomeViewModel.swift */; };
+		FBD673B12CBEAAD200DDD828 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD673B02CBEAAD200DDD828 /* HomeService.swift */; };
+		FBD673B32CBEAB1900DDD828 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD673B22CBEAB1900DDD828 /* Endpoint.swift */; };
+		FBD673B62CBEAB4900DDD828 /* Endpoint+Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD673B52CBEAB4900DDD828 /* Endpoint+Home.swift */; };
+		FBD673B82CBEAB9800DDD828 /* Endpoint+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD673B72CBEAB9800DDD828 /* Endpoint+URL.swift */; };
+		FBD673BA2CBEABBD00DDD828 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD673B92CBEABBD00DDD828 /* Bundle+Extension.swift */; };
+		FBD673BF2CBEAD0100DDD828 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD673BE2CBEAD0100DDD828 /* Log.swift */; };
+		FBD673C32CBEAE3500DDD828 /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD673C22CBEAE3500DDD828 /* CGFloat+Extension.swift */; };
+		FBD673C52CBEB07B00DDD828 /* TimerQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD673C42CBEB07B00DDD828 /* TimerQuery.swift */; };
+		FBD673C72CBEB34000DDD828 /* UIScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD673C62CBEB34000DDD828 /* UIScreen.swift */; };
+		FBD673CA2CBEB4C200DDD828 /* WeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD673C92CBEB4C200DDD828 /* WeatherResponse.swift */; };
+		FBD673CE2CBEBE2700DDD828 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD673CD2CBEBE2700DDD828 /* WeatherView.swift */; };
+		FBD673D02CBEBE3600DDD828 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD673CF2CBEBE3600DDD828 /* WeatherViewModel.swift */; };
+		FBD673D42CBEBF5B00DDD828 /* NavigationLazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD673D32CBEBF5B00DDD828 /* NavigationLazyView.swift */; };
+		FBD673D62CBEC27400DDD828 /* WeatherConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD673D52CBEC27400DDD828 /* WeatherConfigurator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +64,26 @@
 		FBD673762CBEA52C00DDD828 /* ExomindTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExomindTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBD6737A2CBEA52C00DDD828 /* ExomindTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExomindTestUITests.swift; sourceTree = "<group>"; };
 		FBD6737C2CBEA52C00DDD828 /* ExomindTestUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExomindTestUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FBD673A12CBEA76C00DDD828 /* Networker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networker.swift; sourceTree = "<group>"; };
+		FBD673A32CBEA7BC00DDD828 /* NetworkerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkerError.swift; sourceTree = "<group>"; };
+		FBD673A52CBEA7E100DDD828 /* NetworkStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStatus.swift; sourceTree = "<group>"; };
+		FBD673AB2CBEAA8E00DDD828 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		FBD673AD2CBEAAA600DDD828 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		FBD673B02CBEAAD200DDD828 /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
+		FBD673B22CBEAB1900DDD828 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		FBD673B52CBEAB4900DDD828 /* Endpoint+Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Endpoint+Home.swift"; sourceTree = "<group>"; };
+		FBD673B72CBEAB9800DDD828 /* Endpoint+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Endpoint+URL.swift"; sourceTree = "<group>"; };
+		FBD673B92CBEABBD00DDD828 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
+		FBD673BD2CBEAC1200DDD828 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		FBD673BE2CBEAD0100DDD828 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		FBD673C22CBEAE3500DDD828 /* CGFloat+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
+		FBD673C42CBEB07B00DDD828 /* TimerQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerQuery.swift; sourceTree = "<group>"; };
+		FBD673C62CBEB34000DDD828 /* UIScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScreen.swift; sourceTree = "<group>"; };
+		FBD673C92CBEB4C200DDD828 /* WeatherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResponse.swift; sourceTree = "<group>"; };
+		FBD673CD2CBEBE2700DDD828 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
+		FBD673CF2CBEBE3600DDD828 /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
+		FBD673D32CBEBF5B00DDD828 /* NavigationLazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationLazyView.swift; sourceTree = "<group>"; };
+		FBD673D52CBEC27400DDD828 /* WeatherConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherConfigurator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +136,11 @@
 			children = (
 				FBD6735E2CBEA52B00DDD828 /* ExomindTestApp.swift */,
 				FBD673602CBEA52B00DDD828 /* ContentView.swift */,
+				FBD6738E2CBEA6D600DDD828 /* Core */,
+				FBD673A92CBEA84400DDD828 /* Presentation */,
+				FBD6738C2CBEA61F00DDD828 /* Business Logic */,
 				FBD673622CBEA52C00DDD828 /* Assets.xcassets */,
+				FBD673BC2CBEABFF00DDD828 /* App */,
 				FBD673642CBEA52C00DDD828 /* ExomindTest.entitlements */,
 				FBD673652CBEA52C00DDD828 /* Preview Content */,
 			);
@@ -127,6 +170,118 @@
 				FBD6737C2CBEA52C00DDD828 /* ExomindTestUITestsLaunchTests.swift */,
 			);
 			path = ExomindTestUITests;
+			sourceTree = "<group>";
+		};
+		FBD6738C2CBEA61F00DDD828 /* Business Logic */ = {
+			isa = PBXGroup;
+			children = (
+				FBD673C82CBEB48C00DDD828 /* Models */,
+				FBD673B42CBEAB3500DDD828 /* Endpoints */,
+				FBD673AF2CBEAAC900DDD828 /* Services */,
+			);
+			path = "Business Logic";
+			sourceTree = "<group>";
+		};
+		FBD6738E2CBEA6D600DDD828 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				FBD673A02CBEA75900DDD828 /* Networking */,
+				FBD673A72CBEA80A00DDD828 /* Utils */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		FBD673A02CBEA75900DDD828 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				FBD673A12CBEA76C00DDD828 /* Networker.swift */,
+				FBD673A32CBEA7BC00DDD828 /* NetworkerError.swift */,
+				FBD673A52CBEA7E100DDD828 /* NetworkStatus.swift */,
+				FBD673B22CBEAB1900DDD828 /* Endpoint.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		FBD673A72CBEA80A00DDD828 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				FBD673A82CBEA81600DDD828 /* Extensions */,
+				FBD673BE2CBEAD0100DDD828 /* Log.swift */,
+				FBD673C42CBEB07B00DDD828 /* TimerQuery.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		FBD673A82CBEA81600DDD828 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FBD673B92CBEABBD00DDD828 /* Bundle+Extension.swift */,
+				FBD673C62CBEB34000DDD828 /* UIScreen.swift */,
+				FBD673C22CBEAE3500DDD828 /* CGFloat+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FBD673A92CBEA84400DDD828 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				FBD673D12CBEBF3C00DDD828 /* Navigation */,
+				FBD673D22CBEBF4500DDD828 /* Page */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		FBD673AF2CBEAAC900DDD828 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				FBD673B02CBEAAD200DDD828 /* HomeService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		FBD673B42CBEAB3500DDD828 /* Endpoints */ = {
+			isa = PBXGroup;
+			children = (
+				FBD673B52CBEAB4900DDD828 /* Endpoint+Home.swift */,
+				FBD673B72CBEAB9800DDD828 /* Endpoint+URL.swift */,
+			);
+			path = Endpoints;
+			sourceTree = "<group>";
+		};
+		FBD673BC2CBEABFF00DDD828 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				FBD673BD2CBEAC1200DDD828 /* Config.xcconfig */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		FBD673C82CBEB48C00DDD828 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FBD673C92CBEB4C200DDD828 /* WeatherResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FBD673D12CBEBF3C00DDD828 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				FBD673D32CBEBF5B00DDD828 /* NavigationLazyView.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		FBD673D22CBEBF4500DDD828 /* Page */ = {
+			isa = PBXGroup;
+			children = (
+				FBD673AB2CBEAA8E00DDD828 /* HomeView.swift */,
+				FBD673AD2CBEAAA600DDD828 /* HomeViewModel.swift */,
+				FBD673D52CBEC27400DDD828 /* WeatherConfigurator.swift */,
+				FBD673CD2CBEBE2700DDD828 /* WeatherView.swift */,
+				FBD673CF2CBEBE3600DDD828 /* WeatherViewModel.swift */,
+			);
+			path = Page;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +414,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBD673A62CBEA7E100DDD828 /* NetworkStatus.swift in Sources */,
+				FBD673CA2CBEB4C200DDD828 /* WeatherResponse.swift in Sources */,
+				FBD673B32CBEAB1900DDD828 /* Endpoint.swift in Sources */,
+				FBD673BF2CBEAD0100DDD828 /* Log.swift in Sources */,
 				FBD673612CBEA52B00DDD828 /* ContentView.swift in Sources */,
+				FBD673AE2CBEAAA600DDD828 /* HomeViewModel.swift in Sources */,
+				FBD673D62CBEC27400DDD828 /* WeatherConfigurator.swift in Sources */,
 				FBD6735F2CBEA52B00DDD828 /* ExomindTestApp.swift in Sources */,
+				FBD673B62CBEAB4900DDD828 /* Endpoint+Home.swift in Sources */,
+				FBD673C72CBEB34000DDD828 /* UIScreen.swift in Sources */,
+				FBD673AC2CBEAA8E00DDD828 /* HomeView.swift in Sources */,
+				FBD673BA2CBEABBD00DDD828 /* Bundle+Extension.swift in Sources */,
+				FBD673A42CBEA7BC00DDD828 /* NetworkerError.swift in Sources */,
+				FBD673B82CBEAB9800DDD828 /* Endpoint+URL.swift in Sources */,
+				FBD673B12CBEAAD200DDD828 /* HomeService.swift in Sources */,
+				FBD673C52CBEB07B00DDD828 /* TimerQuery.swift in Sources */,
+				FBD673D02CBEBE3600DDD828 /* WeatherViewModel.swift in Sources */,
+				FBD673C32CBEAE3500DDD828 /* CGFloat+Extension.swift in Sources */,
+				FBD673CE2CBEBE2700DDD828 /* WeatherView.swift in Sources */,
+				FBD673D42CBEBF5B00DDD828 /* NavigationLazyView.swift in Sources */,
+				FBD673A22CBEA76C00DDD828 /* Networker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +473,7 @@
 /* Begin XCBuildConfiguration section */
 		FBD6737E2CBEA52C00DDD828 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FBD673BD2CBEAC1200DDD828 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -360,6 +535,7 @@
 		};
 		FBD6737F2CBEA52C00DDD828 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FBD673BD2CBEAC1200DDD828 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -422,6 +598,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"ExomindTest/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ExomindTest/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -458,6 +635,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"ExomindTest/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ExomindTest/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
