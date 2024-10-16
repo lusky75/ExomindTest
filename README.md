@@ -33,3 +33,8 @@ Cas de test pour gérer les erreurs d'API :
   
        - exemple: ("Rennessss", "Parisss" ... etc)
 
+
+https://github.com/user-attachments/assets/cf65df24-0170-4dc6-b35a-36f26ef46c03
+
+
+
