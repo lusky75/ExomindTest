@@ -78,9 +78,9 @@ class WeatherViewModel: ObservableObject {
     private func startTimer() {
         loaded = false
         
-        TimerQuery.shared.registerTimer(id: "updateMessage", interval: 6, repeats: true, block: displayMessage)
+        TimerQuery.shared.registerTimer(id: "updateMessage", interval: 1, repeats: true, block: displayMessage)
         
-        TimerQuery.shared.registerTimer(id: "loadWeather", interval: 10, repeats: true, block: getWeather)
+        TimerQuery.shared.registerTimer(id: "loadWeather", interval: 2, repeats: true, block: getWeather)
         
         displayMessage()
         getWeather()

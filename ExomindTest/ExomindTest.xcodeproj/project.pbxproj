@@ -30,7 +30,6 @@
 		FBD673CA2CBEB4C200DDD828 /* WeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD673C92CBEB4C200DDD828 /* WeatherResponse.swift */; };
 		FBD673CE2CBEBE2700DDD828 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD673CD2CBEBE2700DDD828 /* WeatherView.swift */; };
 		FBD673D02CBEBE3600DDD828 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD673CF2CBEBE3600DDD828 /* WeatherViewModel.swift */; };
-		FBD673D42CBEBF5B00DDD828 /* NavigationLazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD673D32CBEBF5B00DDD828 /* NavigationLazyView.swift */; };
 		FBD673D62CBEC27400DDD828 /* WeatherConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD673D52CBEC27400DDD828 /* WeatherConfigurator.swift */; };
 		FBD673D82CBEF0FF00DDD828 /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD673D72CBEF0FF00DDD828 /* ProgressBarView.swift */; };
 		FBD673DA2CBF00C500DDD828 /* WeatherRowCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD673D92CBF00C500DDD828 /* WeatherRowCard.swift */; };
@@ -89,7 +88,6 @@
 		FBD673C92CBEB4C200DDD828 /* WeatherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResponse.swift; sourceTree = "<group>"; };
 		FBD673CD2CBEBE2700DDD828 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 		FBD673CF2CBEBE3600DDD828 /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
-		FBD673D32CBEBF5B00DDD828 /* NavigationLazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationLazyView.swift; sourceTree = "<group>"; };
 		FBD673D52CBEC27400DDD828 /* WeatherConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherConfigurator.swift; sourceTree = "<group>"; };
 		FBD673D72CBEF0FF00DDD828 /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
 		FBD673D92CBF00C500DDD828 /* WeatherRowCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRowCard.swift; sourceTree = "<group>"; };
@@ -244,7 +242,6 @@
 			isa = PBXGroup;
 			children = (
 				FBD673E22CBF374200DDD828 /* Common */,
-				FBD673D12CBEBF3C00DDD828 /* Navigation */,
 				FBD673D22CBEBF4500DDD828 /* Page */,
 			);
 			path = Presentation;
@@ -281,14 +278,6 @@
 				FBD673C92CBEB4C200DDD828 /* WeatherResponse.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		FBD673D12CBEBF3C00DDD828 /* Navigation */ = {
-			isa = PBXGroup;
-			children = (
-				FBD673D32CBEBF5B00DDD828 /* NavigationLazyView.swift */,
-			);
-			path = Navigation;
 			sourceTree = "<group>";
 		};
 		FBD673D22CBEBF4500DDD828 /* Page */ = {
@@ -487,7 +476,6 @@
 				FBD673E42CBF375300DDD828 /* AsyncImageView.swift in Sources */,
 				FBD673C32CBEAE3500DDD828 /* CGFloat+Extension.swift in Sources */,
 				FBD673CE2CBEBE2700DDD828 /* WeatherView.swift in Sources */,
-				FBD673D42CBEBF5B00DDD828 /* NavigationLazyView.swift in Sources */,
 				FBD673DD2CBF21E100DDD828 /* MockModel.swift in Sources */,
 				FBD673DA2CBF00C500DDD828 /* WeatherRowCard.swift in Sources */,
 				FBD673A22CBEA76C00DDD828 /* Networker.swift in Sources */,
