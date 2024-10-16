@@ -1,5 +1,7 @@
 # ExomindTest
 
+Projet réalisé en SwiftUI / Combine / Swift version 5.1
+
 Demo :
 
 
