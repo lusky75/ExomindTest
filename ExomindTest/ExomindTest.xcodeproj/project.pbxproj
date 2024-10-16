@@ -35,6 +35,9 @@
 		FBD673D62CBEC27400DDD828 /* WeatherConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD673D52CBEC27400DDD828 /* WeatherConfigurator.swift */; };
 		FBD673D82CBEF0FF00DDD828 /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD673D72CBEF0FF00DDD828 /* ProgressBarView.swift */; };
 		FBD673DA2CBF00C500DDD828 /* WeatherRowCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD673D92CBF00C500DDD828 /* WeatherRowCard.swift */; };
+		FBD673DD2CBF21E100DDD828 /* MockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD673DC2CBF21E100DDD828 /* MockModel.swift */; };
+		FBD673DF2CBF220E00DDD828 /* notFoundWeather.json in Resources */ = {isa = PBXBuildFile; fileRef = FBD673DE2CBF220E00DDD828 /* notFoundWeather.json */; };
+		FBD673E42CBF375300DDD828 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD673E32CBF375300DDD828 /* AsyncImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +91,9 @@
 		FBD673D52CBEC27400DDD828 /* WeatherConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherConfigurator.swift; sourceTree = "<group>"; };
 		FBD673D72CBEF0FF00DDD828 /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
 		FBD673D92CBF00C500DDD828 /* WeatherRowCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRowCard.swift; sourceTree = "<group>"; };
+		FBD673DC2CBF21E100DDD828 /* MockModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockModel.swift; sourceTree = "<group>"; };
+		FBD673DE2CBF220E00DDD828 /* notFoundWeather.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = notFoundWeather.json; path = ../../../../notFoundWeather.json; sourceTree = "<group>"; };
+		FBD673E32CBF375300DDD828 /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +149,7 @@
 				FBD6738E2CBEA6D600DDD828 /* Core */,
 				FBD673A92CBEA84400DDD828 /* Presentation */,
 				FBD6738C2CBEA61F00DDD828 /* Business Logic */,
+				FBD673DB2CBF21B700DDD828 /* Mocks */,
 				FBD673622CBEA52C00DDD828 /* Assets.xcassets */,
 				FBD673BC2CBEABFF00DDD828 /* App */,
 				FBD673642CBEA52C00DDD828 /* ExomindTest.entitlements */,
@@ -229,6 +236,7 @@
 		FBD673A92CBEA84400DDD828 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				FBD673E22CBF374200DDD828 /* Common */,
 				FBD673D12CBEBF3C00DDD828 /* Navigation */,
 				FBD673D22CBEBF4500DDD828 /* Page */,
 			);
@@ -288,6 +296,23 @@
 				FBD673D72CBEF0FF00DDD828 /* ProgressBarView.swift */,
 			);
 			path = Page;
+			sourceTree = "<group>";
+		};
+		FBD673DB2CBF21B700DDD828 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				FBD673DE2CBF220E00DDD828 /* notFoundWeather.json */,
+				FBD673DC2CBF21E100DDD828 /* MockModel.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		FBD673E22CBF374200DDD828 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				FBD673E32CBF375300DDD828 /* AsyncImageView.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -396,6 +421,7 @@
 			files = (
 				FBD673672CBEA52C00DDD828 /* Preview Assets.xcassets in Resources */,
 				FBD673632CBEA52C00DDD828 /* Assets.xcassets in Resources */,
+				FBD673DF2CBF220E00DDD828 /* notFoundWeather.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,9 +464,11 @@
 				FBD673B12CBEAAD200DDD828 /* HomeService.swift in Sources */,
 				FBD673C52CBEB07B00DDD828 /* TimerQuery.swift in Sources */,
 				FBD673D02CBEBE3600DDD828 /* WeatherViewModel.swift in Sources */,
+				FBD673E42CBF375300DDD828 /* AsyncImageView.swift in Sources */,
 				FBD673C32CBEAE3500DDD828 /* CGFloat+Extension.swift in Sources */,
 				FBD673CE2CBEBE2700DDD828 /* WeatherView.swift in Sources */,
 				FBD673D42CBEBF5B00DDD828 /* NavigationLazyView.swift in Sources */,
+				FBD673DD2CBF21E100DDD828 /* MockModel.swift in Sources */,
 				FBD673DA2CBF00C500DDD828 /* WeatherRowCard.swift in Sources */,
 				FBD673A22CBEA76C00DDD828 /* Networker.swift in Sources */,
 			);

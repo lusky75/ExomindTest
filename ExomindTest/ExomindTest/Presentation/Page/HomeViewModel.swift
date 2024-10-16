@@ -13,7 +13,7 @@ class HomeViewModel: ObservableObject {
     }
     
     var buttonTitle: String {
-        "Charger la météo des différentes villes"
+        "Charger la météo"
     }
     
     init() {

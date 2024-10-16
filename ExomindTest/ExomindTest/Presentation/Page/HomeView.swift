@@ -14,11 +14,12 @@ struct HomeView: View {
     
     var body: some View {
         ZStack(alignment: .topLeading) {
-            VStack(alignment: .leading, spacing: 20) {
+            VStack(alignment: .leading, spacing: .verticalSpacing) {
                 titleView
                 
                 buttonView
             }
+            .padding(.horizontalPadding)
             .frame(width: UIScreen.screenWidth, alignment: .leading)
         }
     }
@@ -28,17 +29,23 @@ struct HomeView: View {
             .foregroundColor(.black)
 //            .font(Font.custom(.helveticaNeue75, size: 30))
             .padding(.top, .homeTitlePaddingTop)
-            .padding(.leading, .homeTitlePaddingLeading)
     }
     
     private var buttonView: some View {
         NavigationLink {
             WeatherView(viewModel: WeatherViewModel())
         } label: {
-            Text(viewModel.buttonTitle)
-                .foregroundColor(.black)
-                .padding(.top, .homeTitlePaddingTop)
-                .padding(.leading, .homeTitlePaddingLeading)
+            ZStack {
+                // Rectangle as the background
+                Rectangle()
+                    .fill(Color.green)
+                    .frame(width: .screenWidthLessPadding, height: .buttonHeight)
+                    .cornerRadius(.buttonRadius)
+                
+                Text(viewModel.buttonTitle)
+                    .foregroundColor(.white)
+            }
+            .frame(alignment: .center)
         }
     }
 }

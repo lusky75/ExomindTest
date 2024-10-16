@@ -29,7 +29,7 @@ class WeatherViewModel: ObservableObject {
      cities name to be used as parameter to get the weather from an API Service
      */
     private var cities: [String] = [
-        "Rennes",
+        "Rennessss",
         "Paris",
         "Nantes",
         "Bordeaux",
@@ -44,6 +44,10 @@ class WeatherViewModel: ObservableObject {
         "C’est presque fini…",
         "Plus que quelques secondes avant d’avoir le résultat…"
     ]
+    
+    var restartButtonTitle: String {
+        "Recommencer"
+    }
     
     /**
      We also add the cancellables property to store future subscriptions
@@ -95,7 +99,6 @@ class WeatherViewModel: ObservableObject {
         
         TimerQuery.shared.removeTimer(withId: "updateMessage")
         TimerQuery.shared.removeTimer(withId: "loadWeather")
-        TimerQuery.shared.removeTimer(withId: "checkIfLoaded")
     }
     
     private func displayMessage() {
@@ -105,6 +108,9 @@ class WeatherViewModel: ObservableObject {
     }
     
     private func getWeather() {
+        guard currentCityIndex < cities.count else {
+            return
+        }
         let cityName = cities[currentCityIndex]
         self.currentCityIndex += 1
         
@@ -113,10 +119,17 @@ class WeatherViewModel: ObservableObject {
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .failure(let error):
+                    // Log the errors from API
                     Log.error(error)
+                    
+                    // In the case where the weather was not found for the cityName, add fake data in JSON format from MockModel -> notFoundWeather.json to weatherList
+                    self.weatherList.append(WeatherResponse.notFoundWeather())
+                    
+                    self.progress = Double(self.weatherList.count) / Double(self.cities.count)
                 case .finished: break
                 }
             }, receiveValue: { response in
+                
                 self.weatherList.append(response)
                 
                 self.progress = Double(self.weatherList.count) / Double(self.cities.count)
@@ -127,14 +140,13 @@ class WeatherViewModel: ObservableObject {
     }
     
     private func checkIfLoaded() {
-        guard self.currentCityIndex < self.cities.count else {
-            
-            // Delay of 1 second before loading the list and remove timers
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                self.loaded = true
-                self.removeTimer()
-            }
+        guard self.currentCityIndex == self.cities.count else {
             return
+        }
+        // Delay of 1 second before loading the list and remove timers
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.loaded = true
+            self.removeTimer()
         }
     }
 }

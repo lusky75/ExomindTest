@@ -7,9 +7,6 @@
 
 import Foundation
 
-/**
- Simple Logger class
- */
 struct Log {
     /// Prints in debug only
     static func debug(_ msg: Any, line: Int = #line, fileName: String = #file, funcName: String = #function, tag: String = "DEBUG") {

@@ -16,7 +16,17 @@ protocol NetworkerProtocol: AnyObject {
 }
 
 final class Networker: NetworkerProtocol {
+    private func debugData(data: Data) {
+        do {
+            let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String : Any]
+            Log.debug(json)
+        } catch {
+            Log.error("debugData error: \(error)")
+        }
+    }
+    
     private func getResponse(data: Data, response: URLResponse) throws -> Data {
+        // When the API returns an invalid status code (not between 200 and 299), send a NetworkError to handle the errors
         guard let httpResponse = response as? HTTPURLResponse,
             200..<300 ~= httpResponse.statusCode else {
             throw NetworkerError.serverError(NetworkerInfo(url: (response as? HTTPURLResponse)?.url?.absoluteString ?? "",

@@ -12,12 +12,16 @@ struct WeatherView: View {
     
     var body: some View {
         ZStack(alignment: .topLeading) {
-            VStack(alignment: .center, spacing: 20) {
+            VStack(alignment: .center, spacing: .verticalSpacing) {
                 contentView
                 
-                progressView
+                if !viewModel.loaded {
+                    progressBarView
+                } else {
+                    restartButton
+                }
             }
-            .padding(.leading, .homeTitlePaddingLeading)
+            .padding(.horizontalPadding)
             .frame(width: UIScreen.screenWidth, alignment: .leading)
         }
         .onAppear(perform: onAppear)
@@ -38,7 +42,7 @@ struct WeatherView: View {
     private var messageView: some View {
         if let currentMessageToDisplay = viewModel.currentMessageToDisplay {
             Text(currentMessageToDisplay)
-                .foregroundColor(.black)
+                .foregroundColor(.purple)
             //            .font(Font.custom(.helveticaNeue75, size: 30))
                 .padding(.top, .homeTitlePaddingTop)
         }
@@ -46,7 +50,7 @@ struct WeatherView: View {
     
     @ViewBuilder
     private var listView: some View {
-        LazyVStack(alignment: .leading, spacing: 20) {
+        LazyVStack(alignment: .leading, spacing: .verticalSpacing) {
             ForEach(viewModel.weatherList, id: \.id) { weather in
                 WeatherRowCard(weather: weather)
             }
@@ -54,15 +58,25 @@ struct WeatherView: View {
     }
     
     @ViewBuilder
-    private var progressView: some View {
-        if !viewModel.loaded {
-            let progress = viewModel.progress
-            ProgressBarView(value: progress, backgroundColor: .gray, foregroundColor: .purple, width: UIScreen.screenWidth * 0.8, height: 30)
-        } else {
-            Button(action: restart, label: {
-                Text("Recommencer")
-            })
-        }
+    private var progressBarView: some View {
+        let progress = viewModel.progress
+        ProgressBarView(value: progress, backgroundColor: .gray, foregroundColor: .purple, width: .screenWidthLessPadding, height: .weatherViewProgressHeight)
+    }
+    
+    private var restartButton: some View {
+        Button(action: restart, label: {
+            ZStack {
+                // Rectangle as the background
+                Rectangle()
+                    .fill(Color.blue)
+                    .frame(width: .screenWidthLessPadding, height: .buttonHeight)
+                    .cornerRadius(.buttonRadius)
+                
+                Text(viewModel.restartButtonTitle)
+                    .foregroundColor(.white)
+            }
+            .frame(alignment: .center)
+        })
     }
 }
 

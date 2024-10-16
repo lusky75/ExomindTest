@@ -75,16 +75,19 @@ struct WeatherResponse: Codable {
 }
 
 extension WeatherResponse {
+    static func notFoundWeather() -> Self {
+        return MockModel.notFoundWeather
+    }
+    
     var temparatureText: String {
         String(Int(main.temp)) + " °C"
     }
     
-    // Get the icon URL from https://openweathermap.org/img/wn/{iconName}.png
-    var iconURL: URL? {
-        guard let iconName = weather.first?.icon,
-              let url = URL(string: "https://" + Bundle.baseURL + "/img/wn/" + iconName + ".png") else {
+    // Get the icon from https://openweathermap.org/img/wn/{iconName}.png
+    var iconURL: String? {
+        guard let iconName = weather.first?.icon else {
             return nil
         }
-        return url
+        return "https://" + Bundle.baseURL + "/img/wn/" + iconName + ".png"
     }
 }
