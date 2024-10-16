@@ -16,14 +16,14 @@ protocol NetworkerProtocol: AnyObject {
 }
 
 final class Networker: NetworkerProtocol {
-    private func debugData(data: Data) {
-        do {
-            let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String : Any]
-            Log.debug(json)
-        } catch {
-            Log.error("debugData error: \(error)")
-        }
-    }
+//    private func debugData(data: Data) {
+//        do {
+//            let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String : Any]
+//            Log.error(json)
+//        } catch {
+//            Log.error("debugData error: \(error)")
+//        }
+//    }
     
     private func getResponse(data: Data, response: URLResponse) throws -> Data {
         // When the API returns an invalid status code (not between 200 and 299), send a NetworkError to handle the errors
@@ -53,6 +53,19 @@ final class Networker: NetworkerProtocol {
                 return try self.getResponse(data: data, response: response)
             }
             .decode(type: T.self, decoder: JSONDecoder())
+            .mapError { error -> Error in
+                if let urlError = error as? URLError {
+                    switch urlError.code {
+                    case .cannotFindHost:
+                        return NetworkerError.serverError(NetworkerInfo(url: "The server with the specified hostname could not be found.", statusCode: URLError.cannotFindHost.rawValue))
+                    case .notConnectedToInternet:
+                        return URLError(.notConnectedToInternet, userInfo: ["description": "Please check your internet connection."])
+                    default:
+                        return urlError // Keep the original error for other cases
+                    }
+                }
+                return error // Any other error (decoding, etc.)
+            }
             .eraseToAnyPublisher()
     }
 }

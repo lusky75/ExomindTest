@@ -28,25 +28,19 @@ class WeatherViewModel: ObservableObject {
     /**
      cities name to be used as parameter to get the weather from an API Service
      */
-    private var cities: [String] = [
-        "Rennessss",
-        "Paris",
-        "Nantes",
-        "Bordeaux",
-        "Lyon"
-    ]
+    private var cities: [String] = {
+        MockModel.getCities
+    }()
     
     /**
-     Message to display during the loading of weather data
+     Messages to display during the loading of weather data
      */
-    private var loadingMessages: [String] = [
-        "Nous téléchargeons les données…",
-        "C’est presque fini…",
-        "Plus que quelques secondes avant d’avoir le résultat…"
-    ]
+    private var messages: [String] = {
+        MockModel.getMessages
+    }()
     
     var restartButtonTitle: String {
-        "Recommencer"
+        "restart".localize()
     }
     
     /**
@@ -84,9 +78,9 @@ class WeatherViewModel: ObservableObject {
     private func startTimer() {
         loaded = false
         
-        TimerQuery.shared.registerTimer(id: "updateMessage", interval: 1, repeats: true, block: displayMessage)
+        TimerQuery.shared.registerTimer(id: "updateMessage", interval: 6, repeats: true, block: displayMessage)
         
-        TimerQuery.shared.registerTimer(id: "loadWeather", interval: 2, repeats: true, block: getWeather)
+        TimerQuery.shared.registerTimer(id: "loadWeather", interval: 10, repeats: true, block: getWeather)
         
         displayMessage()
         getWeather()
@@ -102,9 +96,9 @@ class WeatherViewModel: ObservableObject {
     }
     
     private func displayMessage() {
-        currentMessageToDisplay = loadingMessages[currentMessageIndex]
+        currentMessageToDisplay = messages[currentMessageIndex]
         
-        currentMessageIndex = (currentMessageIndex + 1) % loadingMessages.count
+        currentMessageIndex = (currentMessageIndex + 1) % messages.count
     }
     
     private func getWeather() {
@@ -123,16 +117,31 @@ class WeatherViewModel: ObservableObject {
                     Log.error(error)
                     
                     // In the case where the weather was not found for the cityName, add fake data in JSON format from MockModel -> notFoundWeather.json to weatherList
-                    self.weatherList.append(WeatherResponse.notFoundWeather())
                     
-                    self.progress = Double(self.weatherList.count) / Double(self.cities.count)
+                    switch error as? NetworkerError {
+                    case .serverError(let networkerInfo):
+                        var notFoundWeather = WeatherResponse.notFoundWeather()
+                        
+                        // Associate an ID hashed, the name of the city, and the status code to be able to display the error when the list is loaded
+                        notFoundWeather.id = UUID().hashValue
+                        notFoundWeather.name = cityName
+                        notFoundWeather.cod = networkerInfo.statusCode
+                        
+                        self.weatherList.append(notFoundWeather)
+                    default:
+                        break
+                    }
+                    
+                    self.checkIfLoaded()
                 case .finished: break
                 }
             }, receiveValue: { response in
+                var weatherResponse = response
                 
-                self.weatherList.append(response)
+                // Associate the name with cityName
+                weatherResponse.name = cityName
                 
-                self.progress = Double(self.weatherList.count) / Double(self.cities.count)
+                self.weatherList.append(weatherResponse)
                 
                 self.checkIfLoaded()
             })
@@ -140,6 +149,9 @@ class WeatherViewModel: ObservableObject {
     }
     
     private func checkIfLoaded() {
+        //
+        self.progress = Double(self.weatherList.count) / Double(self.cities.count)
+        
         guard self.currentCityIndex == self.cities.count else {
             return
         }

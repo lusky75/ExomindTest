@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  ExomindTest
+
+  Created by Lucas CHEN on 16/10/2024.
+  
+*/
+
+// MARK: - Common
+"restart" = "Recommencer";
+
+// MARK: - HomeView
+"home_title" = "Page d'accueil";
+"load_weather" = "Charger la météo";

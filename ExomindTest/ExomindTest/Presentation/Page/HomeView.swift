@@ -27,7 +27,7 @@ struct HomeView: View {
     private var titleView: some View {
         Text(viewModel.title)
             .foregroundColor(.black)
-//            .font(Font.custom(.helveticaNeue75, size: 30))
+            .font(Font.custom(.helveticaNeue75, size: 22))
             .padding(.top, .homeTitlePaddingTop)
     }
     
@@ -44,6 +44,7 @@ struct HomeView: View {
                 
                 Text(viewModel.buttonTitle)
                     .foregroundColor(.white)
+                    .font(Font.custom(.helveticaNeue65, size: 20))
             }
             .frame(alignment: .center)
         }

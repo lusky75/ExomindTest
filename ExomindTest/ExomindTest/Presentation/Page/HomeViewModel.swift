@@ -9,11 +9,11 @@ import Foundation
 
 class HomeViewModel: ObservableObject {
     var title: String {
-        "Page d'accueil"
+        "home_title".localize()
     }
     
     var buttonTitle: String {
-        "Charger la météo"
+        "load_weather".localize()
     }
     
     init() {

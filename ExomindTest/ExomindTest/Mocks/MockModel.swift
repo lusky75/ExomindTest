@@ -14,6 +14,16 @@ struct MockModel {
         return notFoundWeather
     }
     
+    static var getCities: [String] {
+        let cities: [String] = load("getCities.json")
+        return cities
+    }
+    
+    static var getMessages: [String] {
+        let messages: [String] = load("getMessages.json")
+        return messages
+    }
+    
     /**
      Load local json and return a Codable model from the data
      */

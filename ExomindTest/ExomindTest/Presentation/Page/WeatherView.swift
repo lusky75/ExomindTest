@@ -13,6 +13,7 @@ struct WeatherView: View {
     var body: some View {
         ZStack(alignment: .topLeading) {
             VStack(alignment: .center, spacing: .verticalSpacing) {
+                
                 contentView
                 
                 if !viewModel.loaded {
@@ -43,7 +44,7 @@ struct WeatherView: View {
         if let currentMessageToDisplay = viewModel.currentMessageToDisplay {
             Text(currentMessageToDisplay)
                 .foregroundColor(.purple)
-            //            .font(Font.custom(.helveticaNeue75, size: 30))
+                .font(Font.custom(.helveticaNeue65, size: 20))
                 .padding(.top, .homeTitlePaddingTop)
         }
     }
@@ -74,6 +75,7 @@ struct WeatherView: View {
                 
                 Text(viewModel.restartButtonTitle)
                     .foregroundColor(.white)
+                    .font(Font.custom(.helveticaNeue65, size: 20))
             }
             .frame(alignment: .center)
         })

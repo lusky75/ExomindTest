@@ -69,9 +69,11 @@ struct WeatherResponse: Codable {
     let dt: Int
     let sys: Sys
     let timezone: Int
-    let id: Int
-    let name: String
-    let cod: Int
+    
+    var id: Int
+    var name: String
+    var cod: Int
+    var message: String?
 }
 
 extension WeatherResponse {

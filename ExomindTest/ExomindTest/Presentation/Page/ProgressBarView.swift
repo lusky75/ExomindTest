@@ -31,12 +31,14 @@ struct ProgressBarView: View {
                     // Display the percent of the progress in text
                     Text(percentText)
                         .foregroundColor(foregroundColor)
+                        .font(Font.custom(.helveticaNeue65, size: 16))
                         .padding(.progressBarTextPadding)
                 }
                 
                 Rectangle()
                     .frame(width: min(CGFloat(self.value)*geometry.size.width, geometry.size.width), height: geometry.size.height)
                     .foregroundColor(foregroundColor.opacity(0.5))
+                    .animation(.easeInOut(duration: 1.0), value: self.value) // Animation ease in out duration of 1 second
                     .clipShape(
                         RoundedCornersShape(
                             corners: CGFloat(self.value) * geometry.size.width >= .screenWidthLessPadding ? .allCorners : [.topLeft, .bottomLeft],
