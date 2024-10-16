@@ -1,6 +1,6 @@
 # ExomindTest
 
-Projet réalisé en SwiftUI / Combine / Swift version 5.1
+Projet réalisé en Swift version 5.1. Xcode Version 15.3 (SwiftUI / Combine)
 
 Demo :
 
