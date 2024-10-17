@@ -9,6 +9,16 @@ https://github.com/user-attachments/assets/ee1d1a69-c14a-41e0-ad64-08d064312f8a
 
 ------------------------------------------------------------------------------------
 
+Exemple d'API:
+
+        https://api.openweathermap.org/data/2.5/weather?q=Paris,FR&units=metric&APPID=25d26e4ea04643ed454d780bab182377
+
+Exemple d'image de météo:
+
+        https://openweathermap.org/img/wn/10d.png
+
+------------------------------------------------------------------------------------
+
 Pour réaliser la démo plus rapidement, j'ai modifié dans /Presentation/Page/WeatherViewModel ->
 dans la méthode startTimer(), l'interval de relance:
         
